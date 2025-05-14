@@ -8,7 +8,7 @@ interface Props {
 
 export const TaskItem = ({ task, index, setTaskDone }: Props) => {
     return (
-        <li key={index} className="flex items-center justify-between p-2 bg-gray-100 rounded-lg mb-2">
+        <li key={index} className="flex items-center justify-between p-2 my-4 bg-gray-100 rounded-lg mb-2 animate-fade-up animate-once animate-duration-[1400ms] animate-ease-out">
             <span className={`text-sm ${task.completed ? 'line-through' : ''}`}>{task.description}</span>
             <button
                 onClick={() => setTaskDone(task.id)}

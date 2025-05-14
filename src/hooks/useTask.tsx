@@ -14,7 +14,7 @@ const useTask = () => {
         if (!description) return;
         setNewTask('');
         if (!tasks) return setTasks([{ id: 1, description, completed: false }]);
-        setTasks([{ id: tasks?.length + 1, description, completed: false }, ...tasks]);
+        setTasks([...tasks,{ id: tasks?.length + 1, description, completed: false }]);
     };
     return {
         tasks,

@@ -15,11 +15,17 @@ const useTask = () => {
         setNewTask('');
         if (!tasks) return setTasks([{ id: 1, description, completed: false }]);
         setTasks([...tasks,{ id: tasks?.length + 1, description, completed: false }]);
-    };
+    }
+    const removeTask = (id: number) => {
+        if (!tasks) return;
+        const newTasks = tasks.filter((task) => task.id !== id);
+        setTasks(newTasks);
+    }
     return {
         tasks,
         addTask,
         setTaskDone,
+        removeTask,
     }
 }
 

@@ -8,7 +8,7 @@ import useTask from './hooks/useTask';
 
 function App() {
   const [ newTask, setNewTask ] = useState<string>('');
-  const { tasks, addTask, setTaskDone } = useTask();
+  const { tasks, addTask, setTaskDone, removeTask } = useTask();
 
   return (
     <>
@@ -24,10 +24,10 @@ function App() {
           <div className="w-full mt-4">
             <ul className="flex flex-col justify-center items-center px-12 overflow-y-auto">
               {
-                tasks && tasks?.length === 0
+                !tasks || tasks?.length === 0
                   ? <li className="text-center text-gray-500 w-full max-w-md">No hay tareas agregadas</li>
                   : tasks?.map((task, index) => (
-                    <TaskItem key={task.id} index={index} task={task} setTaskDone={setTaskDone} />
+                    <TaskItem key={task.id} index={index} task={task} setTaskDone={setTaskDone} removeTask={removeTask} />
                   ))
               }
             </ul>
